@@ -1,0 +1,26 @@
+version: '2.2'
+
+services:
+   mysql:
+      container_name: limesurvey_mysql
+      image: mariadb:10.5.2-bionic
+      environment:
+         MYSQL_DATABASE: limesurvey
+         MYSQL_ROOT_PASSWORD: secr3t
+      ports:
+         - 3306:3306
+   postgres:
+      container_name: limesurvey_postgres
+      image: postgres:12.2
+      environment:
+         - POSTGRES_USER=jenkins
+         - POSTGRES_PASSWORD=secr3t
+         - POSTGRES_DB=limesurvey
+         - PGDATA=/var/lib/postgresql/data/pgdata
+      ports:
+         - 5342:5432
+   limesurvey:
+      container_name: limesurvey_service
+      image: budtmo/limesurvey:3.22.14
+      ports:
+         - 8081:80

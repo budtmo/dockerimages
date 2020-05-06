@@ -49,6 +49,8 @@ RUN apt-get -qqy update && \
 # 	PHP-Extension for Multibyte String Function
 # php-mysql
 # 	PHP-Extension for using MySQL
+# php-pgsql
+#	PHP-Extension for using Postgres
 # php-xml
 # 	PHP-Extension for simple-xml
 # php-gd
@@ -63,7 +65,7 @@ RUN apt-get -qqy update && \
 RUN apt-get -qqy update && \
 	apt-get -qqy --no-install-recommends install \
 	libapache2-mod-php \
-	php php-mbstring php-mysql php-xml \
+	php php-mbstring php-mysql php-pgsql php-xml \
 	php-gd php-imap php-ldap php-zip \
   && rm -rf /var/lib/apt/lists/*
 

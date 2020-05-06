@@ -14,4 +14,4 @@ Quick Start
 
 - Run limesurvey: ```docker run -d -p 8081:80 budtmo/limesurvey```
 
-- Run limesurvey with MySQL database: ```docker-compose -f docker-compose-mysql.yml up -d```
+- Run limesurvey with database (MySQL or Postgres): ```docker-compose up -d```

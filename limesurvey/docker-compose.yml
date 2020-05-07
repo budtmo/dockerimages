@@ -8,19 +8,33 @@ services:
          MYSQL_DATABASE: limesurvey
          MYSQL_ROOT_PASSWORD: secr3t
       ports:
-         - 3306:3306
+         - 3307:3306
+      volumes:
+         - ./data_mysql:/var/lib/mysql
    postgres:
       container_name: limesurvey_postgres
       image: postgres:12.2
       environment:
-         - POSTGRES_USER=jenkins
+         - POSTGRES_USER=root
          - POSTGRES_PASSWORD=secr3t
          - POSTGRES_DB=limesurvey
          - PGDATA=/var/lib/postgresql/data/pgdata
       ports:
-         - 5342:5432
+         - 5433:5432
+      volumes:
+         - ./data_postgres:/var/lib/postgresql/data/pgdata
+   db_ide:
+      container_name: db_pgadmin
+      image: dpage/pgadmin4:4.19
+      ports:
+         - 8081:80
+      environment:
+         - PGADMIN_DEFAULT_EMAIL=root
+         - PGADMIN_DEFAULT_PASSWORD=secr3t
+      volumes:
+         - ./data_pgadmin:/var/lib/pgadmin
    limesurvey:
       container_name: limesurvey_service
       image: budtmo/limesurvey:3.22.14
       ports:
-         - 8081:80
+         - 8082:80

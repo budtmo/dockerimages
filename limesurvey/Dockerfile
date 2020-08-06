@@ -72,7 +72,7 @@ RUN apt-get -qqy update && \
 #====================
 # Install LimeSurvey
 #====================
-ARG LIMESURVEY_VERSION="3.22.14+200423"
+ARG LIMESURVEY_VERSION="3.22.210+200804"
 ENV LIMESURVEY_VERSION=$LIMESURVEY_VERSION
 RUN wget --no-check-certificate -O limesurvey.zip https://github.com/LimeSurvey/LimeSurvey/archive/${LIMESURVEY_VERSION}.zip \
 	&& unzip limesurvey.zip \

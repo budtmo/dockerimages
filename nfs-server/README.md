@@ -18,3 +18,10 @@ Quick Start
 - Connect client with nfs-server: ```sudo mount xx.xx.xx.xx:/ <target_path_on_client_machine>```
 
 - Check if it is connected: ```df -h```
+
+Use cases
+---------
+
+- In case you want to use custom exports file: ```docker run -d -v shared:/sharedvolume -v <path-of-exports>:/etc/exports -p 2049:2049 budtmo/nfs```
+
+- If you want to connect k8s pod to nfs server, you need to install nfs client on the k8s first to make it work

@@ -9,7 +9,9 @@ Requirements
 Quick Start
 -----------
 
-- Run docker-nfs: ```docker run -d -p 2049:2049 budtmo/nfs```
+- Create a docker volume for docker nfs: ```mkdir -p ~/sharedvolume && docker volume create --name shared --opt type=none --opt device=~/sharedvolume --opt o=bind```
+
+- Run docker-nfs: ```docker run -d -v shared:/sharedvolume -p 2049:2049 budtmo/nfs```
 
 - Install nfs-client on the client side: ```sudo apt-get install nfs-client -y```
 

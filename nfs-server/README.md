@@ -9,8 +9,6 @@ Requirements
 Quick Start
 -----------
 
-- You need to install nfs-kernel-server on host: ```sudo apt-get update -y && sudo apt-get install nfs-kernel-server -y && sudo systemctl stop nfs-kernel-server && sudo systemctl disable nfs-kernel-server```
-
 - Create a docker volume for docker nfs: ```mkdir -p ~/sharedvolume && docker volume create --name shared --opt type=none --opt device=~/sharedvolume --opt o=bind```
 
 - Run docker-nfs: ```docker run -d -v shared:/sharedvolume -p 2049:2049 budtmo/nfs```

@@ -13,12 +13,16 @@ Quick Start
 	```docker pull budtmo/squid-cntlm```
 
     OR you can build by yourself:
+	
 	```
     docker build -t budtmo/squid-cntlm \
 	--build-arg BASE_IMAGE="ubuntu:focal-20220113" \
 	--build-arg TOOL_VERSION="4.10-1ubuntu1.5" \
 	--build-arg RELEASE_TAG_VERSION="4.10-1ubuntu1.5-p1" .
 	```
+
+2. Run using [docker-compose](docker-compose.yml):
+	```docker-compose up -d```
 
 
 Development

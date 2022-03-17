@@ -1,0 +1,52 @@
+version: "3.2"
+
+services:
+    squid:
+        restart: on-failure
+        container_name: my-squid-cntlm
+        image: budtmo/squid-cntlm:4.10-1ubuntu1.5-p1
+        ports:
+            - 3130:3130
+        volumes:
+            - type: volume
+              source: cntlm-config-1
+              target: /cntlm-conf-1
+              volume:
+                nocopy: true
+            - type: volume
+              source: cntlm-config-2
+              target: /cntlm-conf-2
+              volume:
+                nocopy: true
+            - type: volume
+              source: cntlm-config-3
+              target: /cntlm-conf-3
+              volume:
+                nocopy: true
+            - type: volume
+              source: squid-config
+              target: /squid-conf
+              volume:
+                nocopy: true
+
+volumes:
+    cntlm-config-1:
+        driver_opts:
+            type: "nfs"
+            o: "nfsvers=4,addr=xx.xx.xx.xx"
+            device: ":/sample-configurations/cntlm-conf-1"
+    cntlm-config-2:
+        driver_opts:
+            type: "nfs"
+            o: "nfsvers=4,addr=xx.xx.xx.xx"
+            device: ":/sample-configurations/cntlm-conf-2"
+    cntlm-config-3:
+        driver_opts:
+            type: "nfs"
+            o: "nfsvers=4,addr=xx.xx.xx.xx"
+            device: ":/sample-configurations/cntlm-conf-3"
+    squid-config:
+        driver_opts:
+            type: "nfs"
+            o: "nfsvers=4,addr=xx.xx.xx.xx"
+            device: ":/sample-configurations/squid-conf"

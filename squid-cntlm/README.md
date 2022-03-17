@@ -9,11 +9,10 @@ Requirements
 Quick Start
 -----------
 
-1A. You can pull from docker hub
+1. You can pull from docker hub
 	```docker pull budtmo/squid-cntlm```
 
-
-1B. OR you can build by yourself:
+    OR you can build by yourself:
 	```
     docker build -t budtmo/squid-cntlm \
 	--build-arg BASE_IMAGE="ubuntu:focal-20220113" \
